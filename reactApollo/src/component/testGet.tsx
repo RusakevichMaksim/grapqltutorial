@@ -12,11 +12,7 @@ const Test = () => {
   //       id: "idMovie",
   //     },
   //   });
-  const [getCountries, { loading, data }] = useLazyQuery(GetOneMovies, {
-    variables: {
-      id: idMovie,
-    },
-  });
+  const [getCountries, { loading, data }] = useLazyQuery(GetOneMovies);
   console.log(data);
   return (
     <div style={styl}>
@@ -28,7 +24,11 @@ const Test = () => {
       />
       <button
         onClick={() => {
-          getCountries();
+          getCountries({
+            variables: {
+              id: idMovie,
+            },
+          });
         }}
       >
         click
