@@ -1,26 +1,24 @@
 {
-  "name": "grapgqltutorial",
+  "name": "grapqltutorial",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server/app.js"
+    "server": "npm run dev --prefix server",
+    "client": "npm run start --prefix reactApollo",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RusakevichMaksim/grapqltutorial.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RusakevichMaksim/grapqltutorial/issues"
+  },
+  "homepage": "https://github.com/RusakevichMaksim/grapqltutorial#readme",
   "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "@material-ui/icons": "^4.11.2",
-    "apollo-boost": "^0.4.9",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-graphql": "^0.12.0",
-    "graphql": "^15.5.0",
-    "mongoose": "^5.12.13",
-    "nodemon": "^2.0.7",
-    "react-apollo": "^3.1.5",
-    "react-swipeable-views": "^0.14.0",
-    "recompose": "^0.30.0"
+    "concurrently": "^6.2.0"
   }
 }
