@@ -3,7 +3,7 @@ import { GetAllMovies } from "../api/GetAllMovies";
 
 const box = {
   border: "1px solid red",
-  width: "200px",
+  width: "300px",
   height: "200px",
   display: "flex",
   justifyContent: "center",
@@ -29,6 +29,7 @@ const Card = () => {
       {data.movies.map((movie: any) => {
         return (
           <div key={movie.name} style={box}>
+            <p>{movie.id}</p>
             <p>{movie.name}</p>
             <p>{movie.genre}</p>
             <p>{movie.rate}</p>
