@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 const PORT = 3005;
+const cors = require("cors");
 
 async function start() {
   try {
@@ -24,6 +25,7 @@ async function start() {
 }
 start();
 const dbConnection = mongoose.connection;
+app.use(cors());
 
 dbConnection.on("error", (err) => console.log(`con err${err}`));
 dbConnection.once("open", () => {

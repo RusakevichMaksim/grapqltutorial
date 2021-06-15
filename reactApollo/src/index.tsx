@@ -1,14 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
+const cache = new InMemoryCache();
+const client = new ApolloClient({
+  // Provide required constructor fields
+  cache: cache,
+  uri: "http://localhost:3005/graphql",
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
